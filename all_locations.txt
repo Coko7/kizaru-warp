@@ -1,0 +1,6 @@
+$XDG_CONFIG_HOME
+$XDG_CONFIG_HOME/scripts
+$HOME
+$HOME/projects
+$HOME/projects/personal
+$HOME/projects/work
