@@ -9,9 +9,8 @@
 3. Add this at the end of your shell init file (`.bashrc` with bash, `.zshrc` with zsh, etc.):
 ```shell
 source /path/to/kizaru-warp.sh
-export KIZ_WARP_CFG=$XDG_CONFIG_HOME/.config/kizaru-warp
 ```
-4. Download `locations.txt` and `all_locations.txt` and place them in `$KIZ_WARP_CFG` dir.
+4. Download `locations.txt` and `all_locations.txt` and place them in `$HOME/.config/kizaru-warp` or whatever `$KIZ_WARP_CFG` variable points to.
 5. *OPTIONAL:* Create two custom aliases:
 ```shell
 alias j='kizaru-warp'
