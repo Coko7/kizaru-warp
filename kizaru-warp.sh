@@ -2,6 +2,9 @@
 
 function kizaru-warp() {
 
+    # Set env
+    export KIZ_WARP_CFG="${KIZ_WARP_CFG:-$XDG_CONFIG_HOME/kizaru-warp}"
+
     locations_file="$KIZ_WARP_CFG/locations.txt"
     locations_file_all="$KIZ_WARP_CFG/all_locations.txt"
 
@@ -10,9 +13,8 @@ function kizaru-warp() {
         echo "Usage: kizaru-warp [OPTION] [DESTINATION]"
         echo "Attempts to change directory to DESTINATION"
         echo "Supply no [DESTINATION] to use in interactive mode (fzf)"
-        echo "V3 shows the full list of frequent dirs"
         echo "Awakened mode allows to warp to more locations"
-        echo "Example: kizaru-warp downloads\n"
+        echo "Example: kizaru-warp downloads"
         echo "Example: kizaru-warp --awakened test\n"
         echo "Options:"
         echo "\t-a, --awakened      allows to warp to more locations"
