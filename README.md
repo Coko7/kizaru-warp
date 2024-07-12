@@ -4,18 +4,15 @@
 
 ## Setup
 
-
-1. Download `kizaru-warp.sh` and place it somewhere on your system
-2. Add this at the end of your shell init file (`.bashrc` with bash, `.zshrc` with zsh, etc.):
+1. This CLI requires [junegunn/fzf](https://github.com/junegunn/fzf) to be installed in order to function properly. Make sure to install it first before continuing
+2. Download `kizaru-warp.sh` and place it somewhere on your system
+3. Add this at the end of your shell init file (`.bashrc` with bash, `.zshrc` with zsh, etc.):
 ```shell
 source /path/to/kizaru-warp.sh
-
 export KIZ_WARP_CFG=$XDG_CONFIG_HOME/.config/kizaru-warp
-
-alias jj='kizaru-warp --awakened'
 ```
-3. Download `locations.txt` and `all_locations.txt` and place them in `$KIZ_WARP_CFG` dir.
-4. *OPTIONAL:* Create two custom aliases:
+4. Download `locations.txt` and `all_locations.txt` and place them in `$KIZ_WARP_CFG` dir.
+5. *OPTIONAL:* Create two custom aliases:
 ```shell
 alias j='kizaru-warp'
 alias jj='kizaru-warp --awakened'
