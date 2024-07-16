@@ -79,7 +79,8 @@ kizaru_warp() {
         fi
 
         # Find all subdirs of dirs from the jumps_file and hide errors from output
-        all_locations=`find $(cat $KIZ_WARP_LOC_A | envsubst) -mindepth 1 -maxdepth 1 -type d 2>/dev/null`
+        # `-H` is required for symbol links traversal: https://unix.stackexchange.com/questions/93857/find-does-not-work-on-symlinked-path
+        all_locations=`find -H $(cat $KIZ_WARP_LOC_A | envsubst) -mindepth 1 -maxdepth 1 -type d 2>/dev/null`
         # NOTE: Had a lot of trouble with the find command in zsh, see:
         # - https://unix.stackexchange.com/questions/417629/pass-a-list-of-directories-stored-in-a-file-to-find-command
         # - https://stackoverflow.com/questions/73206662/executing-find-command-with-a-file-having-directory-list
