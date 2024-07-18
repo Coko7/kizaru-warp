@@ -5,14 +5,14 @@ export KIZ_WARP_CFG="${KIZ_WARP_CFG:-$XDG_CONFIG_HOME/kizaru-warp}"
 export KIZ_WARP_LOC="${KIZ_WARP_LOC:-$KIZ_WARP_CFG/locations.txt}"
 export KIZ_WARP_LOC_A="${KIZ_WARP_LOC_A:-$KIZ_WARP_CFG/all_locations.txt}"
 
-kizaru_warp() {
+kizaru-warp() {
     # Display help if "--help" or "-h" supplied
     if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
-        echo "Usage: kizaru_warp [OPTION] [DESTINATION]"
+        echo "Usage: kizaru-warp [OPTION] [DESTINATION]"
         echo "Attempts to change directory to DESTINATION"
         echo "Supply no [DESTINATION] to use in interactive mode (fzf)"
         echo "Awakened mode allows to warp to more locations"
-        echo "Example: kizaru_warp downloads\n"
+        echo "Example: kizaru-warp downloads\n"
         echo "Options:"
         echo "\t-a, --awakened      allows to warp to more locations"
         echo "\t-h, --help          display this help text and exit"      
@@ -21,8 +21,8 @@ kizaru_warp() {
     fi
 
     if [ "$1" = "--version" ] || [ "$1" = "-v" ]; then
-        echo "kizaru_warp 0.1"
-        echo "kizaru_warp is an upgrade of my old jump-dir CLI"
+        echo "kizaru-warp 0.1"
+        echo "kizaru-warp is an upgrade of my old jump-dir CLI"
         return 0
     fi
 
@@ -32,7 +32,7 @@ kizaru_warp() {
         is_awakened=true
 
         if [ $# -gt 2 ]; then
-            >&2 echo "kizaru_warp (a): Too many arguments, see: kizaru_warp --help"
+            >&2 echo "kizaru-warp (a): Too many arguments, see: kizaru-warp --help"
             return 1
         fi
 
@@ -43,7 +43,7 @@ kizaru_warp() {
         is_awakened=false
 
         if [ $# -gt 1 ]; then
-            >&2 echo "kizaru_warp (n): Too many arguments, see: kizaru_warp --help"
+            >&2 echo "kizaru-warp (n): Too many arguments, see: kizaru-warp --help"
             return 1
         fi
 
@@ -59,13 +59,13 @@ kizaru_warp() {
         if [ -z "$input" ]; then
             pick=`echo $locations | fzf`
             if [ $? != 0 ]; then
-                # echo "kizaru_warp failed: no warp location selected"
+                # echo "kizaru-warp failed: no warp location selected"
                 return 1
             fi
         else
             pick=`echo $locations | grep "^$input:"`
             if [ $? != 0 ]; then
-                >&2 echo "kizaru_warp (n): no entry found for key '$input'"
+                >&2 echo "kizaru-warp (n): no entry found for key '$input'"
                 return 1
             fi
         fi
